@@ -1,0 +1,45 @@
+.container {
+  display: flex;
+}
+
+.search-form {
+  display: flex;
+  margin-top: 20px;
+}
+
+.submit-field {
+  display: flex;
+  margin-left: 20px;
+}
+
+input {
+  padding: 5px;
+  border-radius: 6px;
+  &:hover,
+  &:focus {
+    box-shadow: 5px 5px 5px 0px rgb(0 0 0 / 0.1);
+    border-color: rgba(0, 117, 255, 0.8);
+  }
+}
+
+.btn-primary {
+  margin-top: 10px;
+}
+
+.btn {
+  padding: 8px;
+  border-radius: 6px;
+  background-color: rgba(0, 117, 255, 0.8);
+  border-color: inherit;
+  color: aliceblue;
+  &:hover,
+  &:focus {
+    box-shadow: 5px 5px 5px 0px rgb(0 0 0 / 0.1);
+    border-color: rgba(0, 117, 255, 0.8);
+  }
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+}
