@@ -26,6 +26,7 @@ refs.loadMoreBtn.addEventListener('click', onLoadMore);
 function onSearchForm(e) {
   e.preventDefault();
   //   clearPictureContainer();
+
   apiService.query = e.currentTarget.elements.query.value;
 
   if (apiService.query === '') {
@@ -36,6 +37,7 @@ function onSearchForm(e) {
   apiService.fetchImages().then(hits => {
     clearPictureContainer();
     renderCardMarkup(hits);
+    refs.loadMoreBtn.classList.remove('is-hidden');
   });
   //   const url = `${BASE_URL}?image_type=photo&orientation=horizontal&q=${searchQuery}&page=1&per_page=12&key=${API_KEY}`;
 
@@ -45,7 +47,15 @@ function onSearchForm(e) {
 }
 
 function onLoadMore() {
-  apiService.fetchImages().then(renderCardMarkup);
+  apiService
+    .fetchImages()
+    .then(renderCardMarkup)
+    .then(data => {
+      refs.loadMoreBtn.scrollIntoView({
+        behavior: 'smooth',
+        block: 'end',
+      });
+    });
 }
 
 // fetch(
