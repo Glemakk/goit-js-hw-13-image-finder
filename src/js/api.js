@@ -4,6 +4,7 @@
 //   },
 // };
 // import { BASE_URL, API_KEY } from './constants';
+// const basicLightbox = require('basiclightbox');
 
 import cardMarkupTpl from '../templates/card-markup.hbs';
 
@@ -18,6 +19,7 @@ const refs = {
   searchForm: document.querySelector('.search-form'),
   loadMoreBtn: document.querySelector('[data-action="load-more"]'),
   cardsMarkup: document.querySelector('.gallery'),
+  img: document.querySelector('.imgCard'),
 };
 
 refs.searchForm.addEventListener('submit', onSearchForm);
