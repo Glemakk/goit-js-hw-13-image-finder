@@ -19,6 +19,7 @@ const refs = {
   searchForm: document.querySelector('.search-form'),
   loadMoreBtn: document.querySelector('[data-action="load-more"]'),
   cardsMarkup: document.querySelector('.gallery'),
+  input: document.querySelector('.search-form-input'),
   img: document.querySelector('.imgCard'),
 };
 
@@ -30,6 +31,7 @@ function onSearchForm(e) {
   //   clearPictureContainer();
 
   apiService.query = e.currentTarget.elements.query.value;
+  console.log(apiService.query);
 
   if (apiService.query === '') {
     return alert('Write some word.');
@@ -38,6 +40,7 @@ function onSearchForm(e) {
 
   apiService.fetchImages().then(hits => {
     clearPictureContainer();
+    clearInputField();
     renderCardMarkup(hits);
     refs.loadMoreBtn.classList.remove('is-hidden');
   });
@@ -72,4 +75,8 @@ function renderCardMarkup(hits) {
 
 function clearPictureContainer() {
   refs.cardsMarkup.innerHTML = '';
+}
+
+function clearInputField() {
+  refs.input.value = '';
 }
